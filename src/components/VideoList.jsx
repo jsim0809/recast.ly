@@ -1,25 +1,9 @@
 import VideoListEntry from '/compiled/src/components/VideoListEntry.js';
 
-// var VideoList = (props) => (
-
-//   <div className="video-list">
-//     <VideoListEntry video={props.videos[0]} />
-//     <VideoListEntry video={props.videos[1]} />
-//     <VideoListEntry video={props.videos[2]} />
-//     <VideoListEntry video={props.videos[3]} />
-//     <VideoListEntry video={props.videos[4]} />
-//   </div>
-// );
-
-var VideoList(props) {
-  const videos = props.videos;
-  const listItems = videos.map((video) =>
-    <VideoListEntry video={video} />
-  );
-
+var VideoList = function({videos, setVideo}) {
   return (
     <div className="video-list">
-      {listItems}
+      {videos.map((video, index) => <VideoListEntry video={video} setVideo={setVideo}/>)}
     </div>
   );
 };
